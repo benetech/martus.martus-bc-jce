@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/martus-thirdparty/libext/BouncyCastle/bin/bcprov-jdk14-128.jar"/>
+	<classpathentry sourcepath="/martus-thirdparty/libext/BouncyCastle/source/bcprov-jdk14-128.zip" kind="lib" path="/martus-thirdparty/libext/BouncyCastle/bin/bcprov-jdk14-128.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
