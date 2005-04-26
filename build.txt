@@ -20,9 +20,9 @@ the jce.jar that is included with the Sun JVM runtime.
 
 INSIDE ECLIPSE (for developers):
 
-From eclipse, go to Window/Preferences... then select Installed JREs, 
-and choose to edit the current one. Uncheck "Use default system libraries",
-and then click Add External Jars. 
+From eclipse, go to Window/Preferences... then under "Java" select 
+Installed JREs, and choose to edit the current one. 
+Uncheck "Use default system libraries", and then click Add External Jars. 
 Navigate to the copy of bc-jce.jar that is in martus-bc-jce/ and choose it. 
 Then, use the Up button to move it just above Sun's jce.jar.
 Say OK to get out, and to do a full rebuild.
