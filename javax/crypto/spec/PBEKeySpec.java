@@ -64,4 +64,13 @@ public class PBEKeySpec
     {
         return password;
     }
+    
+    /*
+     * This getSalt method was added by Beneficent to provide very rough compatibility
+     * with the JCE that ships with Sun Java 1.4.2
+     */
+    public byte[] getSalt()
+    {
+    	return null;
+    }
 }

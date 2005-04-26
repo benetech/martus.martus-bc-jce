@@ -1,16 +1,16 @@
 package javax.crypto;
 
-import java.util.StringTokenizer;
-import java.security.Key;
-import java.security.Provider;
-import java.security.SecureRandom;
 import java.security.AlgorithmParameters;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
+import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-import java.security.InvalidAlgorithmParameterException;
+import java.security.Provider;
+import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.spec.AlgorithmParameterSpec;
+import java.util.StringTokenizer;
 
 /**
  * This class provides the functionality of a cryptographic cipher for
@@ -1404,4 +1404,17 @@ public class Cipher
 
         return cipherSpi.engineUnwrap(wrappedKey, wrappedKeyAlgorithm, wrappedKeyType);
     }
+
+    /*
+     * This getInstance method was added by Beneficent, to provide very rough compatibility
+     * with the JSSE that ships with Sun Java 1.4.2. 
+     */
+    public static final Cipher getInstance(
+            String      transformation,
+            Provider    provider)
+    throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException
+    {
+    	return getInstance(transformation, provider.getName());
+    }
+    
 }
