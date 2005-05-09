@@ -1,5 +1,6 @@
 Instructions for building and installing bc-jce.jar
 
+BUILDING bc-jce.jar FROM THE COMMAND-LINE
 
 The original source can be found in BouncyCastle's cleanroom JCE, 
 which is intended for use with Java 1.3. It is available for 
@@ -16,9 +17,15 @@ When running Martus (or any Martus tool), this jar must be
 included in the "bootclasspath", so it will be used instead of 
 the jce.jar that is included with the Sun JVM runtime. 
 
+BUILDING bc-jce.jar FROM INSIDE ECLIPSE
+
+Expand the 'martus' project in eclipse.
+Right-click on the file build-meta.xml and select 'Run As -> Ant Build...'
+On the 'Targets' tab, unselect al targets except 'jar-bc-jce'
+Only check-into CVS the jar created in the 'martus-bc-jce' project
 
 
-INSIDE ECLIPSE (for developers):
+INCLUDING bc-jce.jar INSIDE ECLIPSE (for developers):
 
 From eclipse, go to Window/Preferences... then under "Java" select 
 Installed JREs, and choose to edit the current one. 
@@ -34,7 +41,7 @@ steps above to re-install your new bc-jce.jar.
 
 
 
-COMMAND LINE (for the Martus installer):
+INCLUDING bc-jce.jar IN COMMAND LINE (for the Martus installer):
 
 When running java, you must specify an additional command line parameter 
 to insert bc-jce.jar earlier in the classpath than Sun's jce.jar. 
