@@ -1,4 +1,16 @@
-package javax.crypto;
+/*
+ * THE FOLLOWING ONLY APPLIES TO THE CHANGES LISTED BELOW:
+ * Copyright (C) 2005, Beneficent Technology, Inc. (Benetech).
+ * Licensed under the same terms as the rest of this source file.
+ * 
+ * Change:
+ *   All instances of DERInputStream were changed to ASN1InputStream
+ *  
+ * Reason:
+ *   Avoid warnings when linking with BouncyCastle version 128
+ */
+
+    package javax.crypto;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -9,7 +21,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 
 import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERInputStream;
+import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.DERObjectIdentifier;
 import org.bouncycastle.asn1.DEROutputStream;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
@@ -52,7 +64,7 @@ public class EncryptedPrivateKeyInfo
         }
 
         ByteArrayInputStream    bIn = new ByteArrayInputStream(encoded);
-        DERInputStream          dIn = new DERInputStream(bIn);
+        ASN1InputStream          dIn = new ASN1InputStream(bIn);
 
         infoObj = new org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo((ASN1Sequence)dIn.readObject());
 
@@ -128,7 +140,7 @@ public class EncryptedPrivateKeyInfo
         try
         {
             ByteArrayInputStream    bIn = new ByteArrayInputStream(algParams.getEncoded());
-            DERInputStream          dIn = new DERInputStream(bIn);
+            ASN1InputStream          dIn = new ASN1InputStream(bIn);
 
             kAlgId = new AlgorithmIdentifier(
                     new DERObjectIdentifier(algParams.getAlgorithm()), dIn.readObject());
