@@ -69,7 +69,7 @@ public class PBEKeySpec
      * This getSalt method was added by Beneficent to provide very rough compatibility
      * with the JCE that ships with Sun Java 1.4.2
      * FOR THIS METHOD ONLY:
-     * Copyright (C) 2005, Beneficent Technology, Inc. (Benetech).
+     * Copyright (C) 2005-2007, Beneficent Technology, Inc. (The Benetech Initiative).
      * Licensed under the same terms as the rest of this source file.
      */
     public byte[] getSalt()

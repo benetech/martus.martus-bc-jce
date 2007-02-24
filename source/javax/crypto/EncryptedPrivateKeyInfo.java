@@ -1,6 +1,6 @@
 /*
  * THE FOLLOWING ONLY APPLIES TO THE CHANGES LISTED BELOW:
- * Copyright (C) 2005, Beneficent Technology, Inc. (Benetech).
+ * Copyright (C) 2005-2007, Beneficent Technology, Inc. (The Benetech Initiative).
  * Licensed under the same terms as the rest of this source file.
  * 
  * Change:
