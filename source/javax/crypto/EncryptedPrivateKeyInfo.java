@@ -5,9 +5,14 @@
  * 
  * Change:
  *   All instances of DERInputStream were changed to ASN1InputStream
- *  
  * Reason:
  *   Avoid warnings when linking with BouncyCastle version 128
+ *   
+ * Change:
+ *   Called getInstance instead of the constructor; removed unused locals
+ * Reason:
+ *   Compatibility with bcprov-jdk15on-147
+ *   
  */
 
     package javax.crypto;
@@ -20,7 +25,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 
-import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.DERObjectIdentifier;
 import org.bouncycastle.asn1.DEROutputStream;
@@ -63,10 +67,7 @@ public class EncryptedPrivateKeyInfo
             throw new NullPointerException("parameters null");
         }
 
-        ByteArrayInputStream    bIn = new ByteArrayInputStream(encoded);
-        ASN1InputStream          dIn = new ASN1InputStream(bIn);
-
-        infoObj = new org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo((ASN1Sequence)dIn.readObject());
+        infoObj = org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo.getInstance(encoded);
 
         try
         {
